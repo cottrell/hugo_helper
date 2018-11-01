@@ -1,5 +1,5 @@
 #!/bin/sh -e
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$( cd "$( dirname $(realpath "${BASH_SOURCE[0]}") )" && pwd )"
 cd $DIR
 # POSTDIR=post/$(whoami)
 POSTDIR=post
@@ -15,7 +15,7 @@ if [[ "$1" ]]; then
     fi
     cd -
 else
-    cd $POSTDIR
+    cd content/$POSTDIR
     vi .
     cd -
 fi
